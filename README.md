@@ -50,3 +50,19 @@ Alias - Yes
 2. 
 Set-up-project-in-vercel
 
+3.
+Add git hub actions ci/cd workflows
+
+4.
+install JEST for tests
+
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event babel-jest
+
+created jest.config.js  - This will set up Jest to work properly with Next.js and React Testing Library
+
+created babel.config.js - set up Babel for Jest
+
+run tests: 
+- npm test
+or 
+- npm test -- --watch
