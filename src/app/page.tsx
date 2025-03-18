@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Button from "./components/button";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         <h1>Hello World ❤️ 
           Welcome to mem-bites app!!!!!
         </h1>
-
+       
         <div className={styles.ctas}>
           <a
             className={styles.primary}
@@ -55,6 +56,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          <Button
+            text="Monika"
+          ></Button>
           <Image
             aria-hidden
             src="/file.svg"
