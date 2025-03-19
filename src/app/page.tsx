@@ -20,7 +20,7 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
-        <h1>Hello World ❤️ 
+        <h1>Hello World ❤️ 🦆 🐸 filip
           Welcome to mem-bites app!!!!!
         </h1>
        
