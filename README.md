@@ -66,3 +66,13 @@ run tests:
 - npm test
 or 
 - npm test -- --watch
+
+5. 
+install husky
+
+6. 
+uninstall jest
+
+7. 
+install vitest
+
