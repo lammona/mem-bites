@@ -37,8 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Creating journal:
 
-1. 
-Create empty next.js app #3
+1.  Create empty next.js app #3
 
 npx create-next-app@latest
 
@@ -47,32 +46,26 @@ Tailwind CSS- no
 Turbopack - no
 Alias - Yes
 
-2. 
-Set-up-project-in-vercel
+2.  Set-up-project-in-vercel
 
-3.
-Add git hub actions ci/cd workflows
+3.  Add git hub actions ci/cd workflows
 
-4.
-install JEST for tests
+4.  install JEST for tests
 
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event babel-jest
 
-created jest.config.js  - This will set up Jest to work properly with Next.js and React Testing Library
+created jest.config.js - This will set up Jest to work properly with Next.js and React Testing Library
 
 created babel.config.js - set up Babel for Jest
 
-run tests: 
+run tests:
+
 - npm test
-or 
+  or
 - npm test -- --watch
 
-5. 
-install husky
+5.  install husky
 
-6. 
-uninstall jest
+6.  uninstall jest
 
-7. 
-install vitest
-
+7.  install vitest

@@ -1,0 +1,14 @@
+.mem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  cursor: pointer;
+  /* flex-direction: column; */
+  background-color: rgb(111, 223, 223);
+  color: black;
+  border: none;
+  border-radius: 1cap;
+  font-size: 1rem;
+}
