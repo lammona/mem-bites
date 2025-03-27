@@ -11,11 +11,10 @@ export default function New_topic() {
 
       <p>This is new topic page</p>
       <h1>What do you want to remember?</h1>
-      <TextForm/>
+      <TextForm />
       <Link href="/">
-      <NavButton text="Back" />
+        <NavButton text="Back" />
       </Link>
-      
 
       <Footer></Footer>
     </div>
