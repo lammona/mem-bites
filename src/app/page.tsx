@@ -3,29 +3,27 @@ import Footer from "./components/footer/footer";
 import Mem_bite from "./components/mem_bite/mem_bite";
 import styles from "./page.module.css";
 import Link from "next/link";
-
+import NavButton from "./components/navButton/navButton";
 
 export default function Home() {
   return (
     <div>
-     <main>
-      <Header></Header>
-     
+      <main>
+        <Header></Header>
+
         <h2>Welcome to mem-bites app!!!!!</h2>
         <div className={styles.mem_container}>
           <Mem_bite></Mem_bite>
           <Mem_bite></Mem_bite>
           <Mem_bite></Mem_bite>
         </div>
-        
-        <button>Quiz me</button>
-        <Link href="/new_topic">
-        <button>Create New</button>
-      </Link>
-        {/* <button>New topic page</button> */}
-      
 
-      <Footer></Footer>
+        <NavButton text="Quiz me" />
+        <Link href="/new_topic">
+          <NavButton text="Create New" />
+        </Link>
+
+        <Footer></Footer>
       </main>
     </div>
   );
