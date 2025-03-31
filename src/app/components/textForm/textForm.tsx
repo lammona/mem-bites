@@ -1,18 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import NavButton from "../navButton/navButton";
+import { useRouter } from "next/navigation";
+// import NavButton from "../navButton/navButton";
 import styles from "./textForm.module.css";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import Link from "next/link";
+// import Link from "next/link";
 
 
 export default function TextForm() {
   const [text, setText] = useState("");
+  const router = useRouter();
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Submited text: ${text}`);
+    router.push(`/memBite?topic=${encodeURIComponent(text)}`);
   };
 
   return (
@@ -24,10 +27,12 @@ export default function TextForm() {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
+          placeholder="Enter a topic"
         />
-        <Link href="/memBite">
+        <button type="submit"> Press Submit</button>
+        {/* <Link href="/memBite">
         <NavButton text="Submit" />
-        </Link>
+        </Link> */}
       </form>
 
       <Footer />
