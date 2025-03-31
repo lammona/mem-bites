@@ -9,7 +9,7 @@ export default function MemBite() {
       <Header />
 
 
-      <h2>Key facts about: ........</h2>
+      <h2>Key facts about: ...tralalalala.....</h2>
       <main>
         <Card />
         <Card />
