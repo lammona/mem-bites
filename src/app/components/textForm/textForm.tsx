@@ -6,6 +6,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import Link from "next/link";
 
+
 export default function TextForm() {
   const [text, setText] = useState("");
 
@@ -16,21 +17,20 @@ export default function TextForm() {
 
   return (
     <div>
-      <Header/>
-    <form onSubmit={handleSubmit}>
-      <input
-        className={styles.input}
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <NavButton text="Submit" />
-    </form>
+      <Header />
+      <form onSubmit={handleSubmit}>
+        <input
+          className={styles.input}
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <Link href="/memBite">
+        <NavButton text="Submit" />
+        </Link>
+      </form>
 
-    <Link href="/memBite">
-    <NavButton text="temporary link to mem_bite page"/>
-    </Link>
-    <Footer/>
+      <Footer />
     </div>
   );
 }

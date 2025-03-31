@@ -9,9 +9,14 @@ export default function New_topic() {
     <div>
       <Header></Header>
 
-      <p>This is new topic page</p>
       <h1>What do you want to remember?</h1>
       <TextForm />
+
+      {/* //moved the following to the form component */}
+      {/* <Link href="/memBite">
+        <NavButton text="temporary link to mem_bite page" />
+      </Link> */}
+
       <Link href="/">
         <NavButton text="Back" />
       </Link>
