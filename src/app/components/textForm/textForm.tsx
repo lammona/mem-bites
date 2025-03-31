@@ -2,29 +2,37 @@
 import React, { useState } from "react";
 import NavButton from "../navButton/navButton";
 import styles from "./textForm.module.css";
+import Header from "../header/header";
+import Footer from "../footer/footer";
+import Link from "next/link";
 
+export default function TextForm() {
+  const [text, setText] = useState("");
 
-export default function TextForm(){
-    const [text, setText]= useState("");
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Submited text: ${text}`);
+  };
 
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      alert(`Submited text: ${text}`);
-    };
+  return (
+    <div>
+      <Header/>
+    <form onSubmit={handleSubmit}>
+      <input
+        className={styles.input}
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <NavButton text="Submit" />
+    </form>
 
-    return (
-            <form onSubmit={handleSubmit}>
-                <input 
-                className={styles.input} 
-                type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                />
-            <NavButton text="Submit"/>
-            </form>
-    
-
-    )
+    <Link href="/memBite">
+    <NavButton text="temporary link to mem_bite page"/>
+    </Link>
+    <Footer/>
+    </div>
+  );
 }
 
 // Add a simple text input field. v
