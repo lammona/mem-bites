@@ -1,3 +1,5 @@
+"use client";
+
 //this is a page where you can accept, change or ask for more facts generated
 //after confirmation(submit) user will be taken to next page- ViewMemBite page
 
@@ -6,14 +8,21 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import NavButton from "../components/navButton/navButton";
 import Link from "next/link";
+import MyClientInput from "../components/myClientInput/myClientInput";
+import { Suspense } from "react";
 
 export default function MemBite() {
   return (
     <div>
       <Header />
 
-{/* //display key facts about ...- the topic that user input in the TextForm function */}
-      <h2>Key facts about: ........</h2>
+      {/* //display key facts about ...- the topic that user input in the TextForm function */}
+      <h2>
+        Key facts about:
+        <Suspense>
+          <MyClientInput />
+        </Suspense>
+      </h2>
       <main>
         <Card />
         <Card />

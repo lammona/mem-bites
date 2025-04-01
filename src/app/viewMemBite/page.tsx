@@ -1,18 +1,25 @@
 //this is ViewMemBite page. use is no longer manipulate the facts at this stage-
 //unless special feature will be created in the future to do so
-
+"use client";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import NavButton from "../components/navButton/navButton";
 import Card from "../components/card/card";
 import Link from "next/link";
+import MyClientInput from "../components/myClientInput/myClientInput";
+import { Suspense } from "react";
 
 export default function ViewMemBite() {
   return (
     <div>
       <Header />
 
-      <h2>Key facts about: ...tralalalala.....</h2>
+      <h2>
+        Key facts about:
+        <Suspense>
+          <MyClientInput />
+        </Suspense>
+      </h2>
       <main>
         <Card />
         <Card />
