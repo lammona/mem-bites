@@ -8,21 +8,16 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import NavButton from "../components/navButton/navButton";
 import Link from "next/link";
-import MyClientInput from "../components/myClientInput/myClientInput";
 import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function MemBite() {
+function Content() {
+  const searchParams = useSearchParams();
+  const topic = searchParams.get("topic") || "Unknown topic";
+
   return (
-    <div>
-      <Header />
-
-      {/* //display key facts about ...- the topic that user input in the TextForm function */}
-      <h2>
-        Key facts about:
-        <Suspense>
-          <MyClientInput />
-        </Suspense>
-      </h2>
+    <>
+      <h2>Key facts about: {topic}</h2>
       <main>
         <Card />
         <Card />
@@ -33,10 +28,20 @@ export default function MemBite() {
       <button>Create fact yourself</button>
 
       <NavButton text="Submit"></NavButton>
-      <Link href="/viewMemBite">
+      <Link href={`/viewMemBite?topic=${encodeURIComponent(topic)}`}>
         <NavButton text="temporary link to ViewMemBite page" />
       </Link>
+    </>
+  );
+}
 
+export default function MemBite() {
+  return (
+    <div>
+      <Header />
+      <Suspense>
+        <Content />
+      </Suspense>
       <Footer />
     </div>
   );
