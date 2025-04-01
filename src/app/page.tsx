@@ -12,6 +12,7 @@ export default function Home() {
         <Header></Header>
 
         <h2>Welcome to mem-bites app!!!!!</h2>
+        <p>Test deployment</p>
         <div className={styles.mem_container}>
           <Mem_bite></Mem_bite>
           <Mem_bite></Mem_bite>
