@@ -7,11 +7,9 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 // import Link from "next/link";
 
-
 export default function TextForm() {
   const [text, setText] = useState("");
   const router = useRouter();
-
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
