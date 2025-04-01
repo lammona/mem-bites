@@ -6,20 +6,15 @@ import Footer from "../components/footer/footer";
 import NavButton from "../components/navButton/navButton";
 import Card from "../components/card/card";
 import Link from "next/link";
-import MyClientInput from "../components/myClientInput/myClientInput";
+import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
-export default function ViewMemBite() {
+function Content() {
+  const searchParams = useSearchParams();
+  const topic = searchParams.get("topic") || "Unknown topic";
   return (
-    <div>
-      <Header />
-
-      <h2>
-        Key facts about:
-        <Suspense>
-          <MyClientInput />
-        </Suspense>
-      </h2>
+    <>
+      <h2>Key facts about: {topic}</h2>
       <main>
         <Card />
         <Card />
@@ -29,6 +24,18 @@ export default function ViewMemBite() {
       <Link href="/memBite">
         <NavButton text="Back" />
       </Link>
+    </>
+  );
+}
+
+export default function ViewMemBite() {
+  return (
+    <div>
+      <Header />
+      <Suspense>
+        <Content />
+      </Suspense>
+
       <Footer />
     </div>
   );
