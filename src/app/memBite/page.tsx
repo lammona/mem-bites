@@ -10,14 +10,26 @@ import NavButton from "../components/navButton/navButton";
 import Link from "next/link";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getTopicDefinition } from "../lib/chatgpt";
 
 function Content() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "Unknown topic";
+  const [definition, setDefinition] = useState<string>("Loading...");
+
+    useEffect(() =>{
+      const fetchDefinition = async () => {
+        const def = await getTopicDefinition(topic);
+        setDefinition(def);
+      };
+      fetchDefinition();
+    }, [topic]);
 
   return (
     <>
       <h2>Key facts about: {topic}</h2>
+      <p><strong>Definition:</strong> {definition}</p>
       <main>
         <Card />
         <Card />
