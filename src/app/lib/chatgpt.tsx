@@ -13,6 +13,7 @@ export async function getTopicDefinition(topic: string): Promise<string> {
       const data = await response.json();
       return data.definition || "No definition found.";
   } catch (error) {
+    console.error("Error fething definition:", error);
       return "Failed to load definition.";
   }
 }

@@ -32,6 +32,7 @@ export async function POST(req: NextRequest) {
             definition: data.choices?.[0]?.message?.content?.trim() || "No definition found.",
         });
     } catch (error) {
+        console.error("Error fething definition:", error);
         return NextResponse.json({ error: "Failed to fetch definition" }, { status: 500 });
     }
 }
