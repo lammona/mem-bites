@@ -1,71 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Project Name
+Mem Bites
+A minimal memory-training app that helps users learn and retain bite-sized facts over time.
 
-## Getting Started
+Live Demo: [your-app-link.com](https://mem-bites.vercel.app/)
 
-First, run the development server:
+Overview
+I built Mem Bites to create a lightweight, low-effort way to improve how we learn and remember information. Whether it's animals, science, or historical facts, the app uses AI to generate short, memorable facts on any topic the user wants to learn about.
 
-```bash
+Once a topic is entered (e.g., "falcon"), the app fetches three concise facts using OpenAI. Users can accept, reject, or edit the facts. These "mems" are then delivered back to the user through spaced notifications, helping reinforce memory over time with minimal user effort.
+
+The goal: make learning effortless, intentional, and more effective—one bite at a time.
+
+Tech Stack
+Frontend: React, Next.js, TypeScript
+Backend: Node.js, Next.js
+Styling: CSS
+Testing: Vitest
+Deployment: Vercel
+
+Features
+✅ AI-Powered Fact Generation
+    Generate concise, AI-curated facts on any topic using OpenAI, facilitating quick and effective learning.
+✅ Customizable Mems
+    Accept, reject, or edit generated facts before saving them as personalized "mems" for future review.
+✅ Minimalist, Distraction-Free Interface
+    Focus on learning with a clean and intuitive design that minimizes distractions.
+
+🚧 Spaced Repetition Reminders
+    Utilize a spaced repetition system with scheduled notifications to reinforce memory retention over time.
+🚧 Quiz Me Feature
+    Engage with interactive quizzes based on your mems to test knowledge and strengthen recall.
+🚧 Dark Mode Toggle
+    Switch between light and dark themes to suit your preference and reduce eye strain.
+🚧 User Authentication
+    Securely sign up, log in, and log out to manage your personalized learning experience.
+🚧 Progress Tracking
+    Monitor your learning journey with visual indicators showing reviewed and pending mems.
+🚧 Responsive Design
+    Access Mem Bites seamlessly across various devices, ensuring a consistent experience.
+
+Setup & Installation
+1️⃣ Clone this repo:
+bash
+CopyEdit
+git clone https://github.com/lammona/mem-bites.git
+cd project-name
+
+2️⃣ Install dependencies:
+bash
+CopyEdit
+npm install
+
+3️⃣ Run the app locally:
+bash
+CopyEdit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+What I Learned
+I built Mem Bites to practice and solidify the skills I developed during the School of Code bootcamp. This project allowed me to apply real-world concepts and tools in areas such as:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+⚛️ Using React, Next.js, and TypeScript for modern frontend development
+🔧 Setting up CI/CD pipelines and managing tasks with GitHub Projects
+🎨 Designing clean, accessible UI with CSS Modules
+🔐 Implementing best practices for security and privacy
+🤖 Integrating AI models via the OpenAI API
+🔔 Building a spaced repetition system with push notifications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Future Improvements
+🧠 Handling user authentication
+📊 Add data visualization to show learning progress over time
+📱 Improve mobile responsiveness for a smoother cross-device experience
+🧩 Introduce tagging and categorization for better mem organization
+🔄 Enable sync across devices and potential offline mode
+🗂 Add options to archive or prioritize mems based on difficulty or interest
+📈 Track quiz performance and learning trends over time
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+👤 About Me
+Monika Lament – Junior Software Developer
+💻 I’m a Junior Full-Stack Developer who built Mem Bites to explore AI-powered learning and reinforce what I learned at the School of Code. My background in care has shaped how I approach tech—with empathy, curiosity, and a user-first mindset.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📧 Email: [lament.mon@gmail.com]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-Creating journal:
-
-1.  Create empty next.js app #3
-
-npx create-next-app@latest
-
-Typescript - yes
-Tailwind CSS- no
-Turbopack - no
-Alias - Yes
-
-2.  Set-up-project-in-vercel
-
-3.  Add git hub actions ci/cd workflows
-
-4.  install JEST for tests
-
-npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event babel-jest
-
-created jest.config.js - This will set up Jest to work properly with Next.js and React Testing Library
-
-created babel.config.js - set up Babel for Jest
-
-run tests:
-
-- npm test
-  or
-- npm test -- --watch
-
-5.  install husky
-
-6.  uninstall jest
-
-7.  install vitest
+🔗 LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/monika-lament/)
