@@ -17,8 +17,8 @@ export async function POST(req: NextRequest) {
             },
             body: JSON.stringify({
                 model: "gpt-4",
-                messages: [{ role: "system", content: `Define '${topic}' in one sentence.` }],
-                max_tokens: 50,
+                messages: [{ role: "system", content: `Present 3 very short interesting facts about the '${topic}' in seperate sentences, where each cannot be longer than 20 tokens` }],
+                max_tokens: 100,
             }),
         });
 
