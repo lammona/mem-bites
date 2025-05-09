@@ -8,7 +8,7 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import NavButton from "../components/navButton/navButton";
 import Link from "next/link";
-//import { Suspense } from "react";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getTopicDefinition } from "../lib/chatgpt"; 
@@ -59,9 +59,9 @@ export default function MemBite() {
   return (
     <div>
       <Header />
-      {/* <Suspense> */}
+      <Suspense>
         <Content />
-      {/* </Suspense> */}
+      </Suspense>
       <Footer />
     </div>
   );
