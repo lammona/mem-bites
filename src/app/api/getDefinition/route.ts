@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
             },
             body: JSON.stringify({
                 model: "gpt-4",
-                messages: [{ role: "system", content: `Present 3 very short interesting facts about the '${topic}' in seperate sentences, where each cannot be longer than 20 tokens. Sound like an pirate!` }],
+                messages: [{ role: "system", content: `Present 3 very short interesting facts about the '${topic}' in seperate sentences, where each cannot be longer than 20 tokens. don't mark them with numbers` }],
                 max_tokens: 100,
             }),
         });
@@ -28,9 +28,9 @@ export async function POST(req: NextRequest) {
         }
 
         const data = await response.json();
-        return NextResponse.json({
-            definition: data.choices?.[0]?.message?.content?.trim() || "No definition found.",
-        });
+        const content = data.choices?.[0]?.message?.content?.trim() || "No Facts found.";
+        const facts = content.split(".").map((fact) => fact.trim()).filter((fact) => fact !== "")
+        return NextResponse.json({ facts});
     } catch (error) {
         console.error("Error fething definition:", error);
         return NextResponse.json({ error: "Failed to fetch definition" }, { status: 500 });
