@@ -1,4 +1,4 @@
-export async function getTopicDefinition(topic: string): Promise<string> {
+export async function getTopicDefinition(topic: string): Promise<{ facts: string[]}> {
   try {
       const response = await fetch("/api/getDefinition", {
           method: "POST",
@@ -7,14 +7,14 @@ export async function getTopicDefinition(topic: string): Promise<string> {
       });
 
       if (!response.ok) {
-          return "Error: API request failed.";
+          return {facts: ["Error: API request failed."]};
       }
 
       return await response.json();
       // return data.definition || "No definition found.";
   } catch (error) {
     console.error("Error fething definition:", error);
-      return "Failed to load definition.";
+      return {facts: ["Failed to load definition."]};
   }
 }
 
