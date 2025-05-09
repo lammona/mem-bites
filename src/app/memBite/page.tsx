@@ -11,29 +11,37 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getTopicDefinition } from "../lib/chatgpt";
+import { getTopicDefinition } from "../lib/chatgpt"; 
+
 
 function Content() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "Unknown topic";
-  const [definition, setDefinition] = useState<string>("Loading...");
+  //const [definition, setDefinition] = useState<string>("Loading...");
+  const [facts, setFacts]= useState<string[]>(["Loading..."]);
 
     useEffect(() =>{
-      const fetchDefinition = async () => {
-        const def = await getTopicDefinition(topic);
-        setDefinition(def);
+      const fetchFacts = async () => {
+        try {
+          const data = await getTopicDefinition(topic);
+          setFacts(data.facts || ["No facts found."]);
+        } catch (error) {
+          console.error("Error fetching facts:", error);
+          setFacts(["Failed to load facts. Please try again."]);
+        }
       };
-      fetchDefinition();
+    
+      fetchFacts();
     }, [topic]);
 
   return (
     <>
       <h2>Key facts about: {topic}</h2>
-      <p><strong>Definition:</strong> {definition}</p>
+      {/* <p><strong>Definition:</strong> {facts}</p> */}
       <main>
-        <Card />
-        <Card />
-        <Card />
+        {facts.map((fact, index) => ( 
+        <Card key={index} content={fact} />
+      ))}        
       </main>
 
       <button>Give me one more</button>
