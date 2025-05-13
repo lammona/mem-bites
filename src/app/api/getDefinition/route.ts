@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {
         const content = data.choices?.[0]?.message?.content?.trim() || "No Facts found.";
         // const facts = content.split(".").map((fact: string) => fact.trim()).filter((fact: string) => fact !== "");
         const facts = content.split(".").map((fact: string) => fact.trim()).filter((fact: string) => fact !== "")
+ 
 
         return NextResponse.json({ facts});
     } catch (error) {
