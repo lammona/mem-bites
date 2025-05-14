@@ -11,7 +11,6 @@ import { Suspense } from "react";
 import { useEffect, useState } from "react";
 import { getTopicDefinition } from "../lib/chatgpt";
 
-
 function Content() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "Unknown topic";
@@ -35,9 +34,9 @@ function Content() {
     <>
       <h2>Key facts about: {topic}</h2>
       <main>
-      {facts.map((fact, index) => ( 
-              <Card key={index} content={fact} />
-            ))}
+        {facts.map((fact, index) => (
+          <Card key={index} content={fact} />
+        ))}
       </main>
 
       <Link href="/memBite">
