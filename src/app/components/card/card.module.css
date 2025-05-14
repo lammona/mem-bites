@@ -8,4 +8,53 @@
   border-style: solid;
   border-width: 2;
   width: 505px;
+  flex-direction: column;
 }
+
+
+.cardContent {
+  width: 100%;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.approve {
+cursor: pointer;
+}
+
+.remove{
+cursor: pointer;
+}
+
+/* 
+.card {
+
+  border: 2px solid black;
+  width: 505px;
+  padding: 16px;
+}
+  */
+
+/* .actions {
+  gap: 10px;
+  margin-top: 10px;
+} */
+
+/* .approve {
+  background-color: green;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+ 
+} */
+
+/* .remove {
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+} */ 
