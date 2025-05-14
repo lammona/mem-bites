@@ -1,20 +1,22 @@
-export async function getTopicDefinition(topic: string): Promise<{ facts: string[]}> {
+export async function getTopicDefinition(
+  topic: string,
+): Promise<{ facts: string[] }> {
   try {
-      const response = await fetch("/api/getDefinition", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ topic }),
-      });
+    const response = await fetch("/api/getDefinition", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic }),
+    });
 
-      if (!response.ok) {
-          return {facts: ["Error: API request failed."]};
-      }
+    if (!response.ok) {
+      return { facts: ["Error: API request failed."] };
+    }
 
-      return await response.json();
-      // return data.definition || "No definition found.";
+    return await response.json();
+    // return data.definition || "No definition found.";
   } catch (error) {
     console.error("Error fething definition:", error);
-      return {facts: ["Failed to load definition."]};
+    return { facts: ["Failed to load definition."] };
   }
 }
 
@@ -24,10 +26,8 @@ export async function getTopicDefinition(topic: string): Promise<{ facts: string
 
 //     console.log("API Key:", process.env.OPENAI_API_KEY);
 //     //console.log("Public API Key:", process.env.NEXT_PUBLIC_OPENAI_API_KEY);
-    
-    
-//   const url = "https://api.openai.com/v1/chat/completions";
 
+//   const url = "https://api.openai.com/v1/chat/completions";
 
 //   if (!API_KEY) {
 //     console.error("❌ OpenAI API key is missing!");

@@ -16,16 +16,16 @@ interface CardProps {
 //   );
 // }
 
-export default function Card({content}: CardProps){
+export default function Card({ content }: CardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.cardContent}>
         <p>{content}</p>
         <div className={styles.actions}>
-        <button className={styles.approve}>Approve ✅</button>
-        <button className={styles.remove}>Remove❌</button>
+          <button className={styles.approve}>Approve ✅</button>
+          <button className={styles.remove}>Remove❌</button>
         </div>
       </div>
     </div>
-  )
+  );
 }

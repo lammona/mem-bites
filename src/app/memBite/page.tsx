@@ -11,40 +11,56 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getTopicDefinition } from "../lib/chatgpt"; 
-
+import { getTopicDefinition } from "../lib/chatgpt";
 
 function Content() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "Unknown topic";
   //const [definition, setDefinition] = useState<string>("Loading...");
-  const [facts, setFacts]= useState<string[]>(["Loading..."]);
+  const [facts, setFacts] = useState<string[]>(["Loading..."]);
 
-    useEffect(() =>{
-      const fetchFacts = async () => {
-        try {
-          const data = await getTopicDefinition(topic);
-          setFacts(data.facts || ["No facts found."]);
-        } catch (error) {
-          console.error("Error fetching facts:", error);
-          setFacts(["Failed to load facts. Please try again."]);
-        }
-      };
-    
-      fetchFacts();
-    }, [topic]);
+  //🛟 check for clarification
+  const [allFacts, setAllFacts] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchFacts = async () => {
+      try {
+        const data = await getTopicDefinition(topic);
+        setFacts(data.facts || ["No facts found."]);
+        setAllFacts(data.facts || []);
+      } catch (error) {
+        console.error("Error fetching facts:", error);
+        setFacts(["Failed to load facts. Please try again."]);
+      }
+    };
+
+    fetchFacts();
+  }, [topic]);
+
+  //🛟 new function
+  const handleGiveMeMore = async () => {
+    try {
+      const newFact = await getOneMoreFact(topic, allFacts);
+      if (newFact && !allFacts.includes(newFact)) {
+        setFacts((prev) => [...prev, newFact]);
+        setAllFacts((prev) => [...prev, newFact]);
+      }
+    } catch (error) {
+      console.error("Error getting new fact:", error);
+    }
+  };
 
   return (
     <>
       <h2>Key facts about: {topic}</h2>
       {/* <p><strong>Definition:</strong> {facts}</p> */}
       <main>
-        {facts.map((fact, index) => ( 
-        <Card key={index} content={fact} />
-      ))}        
+        {facts.map((fact, index) => (
+          <Card key={index} content={fact} />
+        ))}
       </main>
 
-      <button>Give me one more</button>
+      <button onClick={handleGiveMeMore}>Give me one more</button>
       <button>Create fact yourself</button>
 
       <NavButton text="Submit"></NavButton>
@@ -53,6 +69,19 @@ function Content() {
       </Link>
     </>
   );
+}
+
+async function getOneMoreFact(topic: string, exclude: string[]) {
+  const response = await fetch("/api/getDefinition", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ topic, excludesFacts: exclude }),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch new fact");
+  }
+  const data = await response.json();
+  return data.facts[0];
 }
 
 export default function MemBite() {
