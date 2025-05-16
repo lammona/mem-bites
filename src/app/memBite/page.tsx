@@ -37,7 +37,7 @@ function Content() {
     fetchFacts();
   }, [topic]);
 
-  //🛟 new function
+  //🛟 new function - check for clarification
   const handleGiveMeMore = async () => {
     try {
       const newFact = await getOneMoreFact(topic, allFacts);
