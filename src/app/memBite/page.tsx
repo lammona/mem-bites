@@ -12,12 +12,15 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getTopicDefinition } from "../lib/chatgpt";
+import Modal from "../components/modal/modal";
 
 function Content() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "Unknown topic";
   //const [definition, setDefinition] = useState<string>("Loading...");
   const [facts, setFacts] = useState<string[]>(["Loading..."]);
+  const [showModal, setShowModal] = useState(false);
+  const [customFact, setCustomFact] = useState("");
 
   //🛟 check for clarification
   const [allFacts, setAllFacts] = useState<string[]>([]);
@@ -50,6 +53,13 @@ function Content() {
     }
   };
 
+  const handleCustomFactSubmit = (fact: string) => {
+    if (!fact.trim()) return;
+    setFacts((prev) => [...prev, fact.trim()]);
+    setCustomFact("");
+    setShowModal(false);
+  };
+
   return (
     <>
       <h2>Key facts about: {topic}</h2>
@@ -61,7 +71,16 @@ function Content() {
       </main>
 
       <button onClick={handleGiveMeMore}>Give me one more</button>
-      <button>Create fact yourself</button>
+      <button onClick={() => setShowModal(true)}> Create fact yourself</button>
+
+      {showModal && (
+        <Modal
+          onClose={() => setShowModal(false)}
+          onSubmit={handleCustomFactSubmit}
+          value={customFact}
+          setValue={setCustomFact}
+        />
+      )}
 
       <NavButton text="Submit"></NavButton>
       <Link href={`/viewMemBite?topic=${encodeURIComponent(topic)}`}>
