@@ -1,0 +1,15 @@
+.header{
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color:cadetblue;
+}
+.appName{
+    color:black;
+}
+.appDescription{
+    display: flex;
+    
+    color:black;
+
+}

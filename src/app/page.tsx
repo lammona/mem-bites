@@ -16,7 +16,6 @@ export default function Home() {
         <div className={styles.mem_container}>
           <Mem_bite></Mem_bite>
           <Mem_bite></Mem_bite>
-          <Mem_bite></Mem_bite>
         </div>
 
         <NavButton text="Quiz me" />
