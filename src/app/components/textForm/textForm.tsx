@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 // import NavButton from "../navButton/navButton";
 import styles from "./textForm.module.css";
-import Header from "../header/header";
-import Footer from "../footer/footer";
-// import Link from "next/link";
 
 export default function TextForm() {
   const [text, setText] = useState("");
@@ -18,7 +15,6 @@ export default function TextForm() {
 
   return (
     <div>
-      <Header />
       <form onSubmit={handleSubmit}>
         <input
           className={styles.input}
@@ -32,8 +28,6 @@ export default function TextForm() {
         <NavButton text="Submit" />
         </Link> */}
       </form>
-
-      <Footer />
     </div>
   );
 }
