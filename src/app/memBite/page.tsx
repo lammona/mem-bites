@@ -21,6 +21,7 @@ function Content() {
   const [facts, setFacts] = useState<string[]>(["Loading..."]);
   const [showModal, setShowModal] = useState(false);
   const [customFact, setCustomFact] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //🛟 check for clarification
   const [allFacts, setAllFacts] = useState<string[]>([]);
@@ -42,6 +43,7 @@ function Content() {
 
   //🛟 new function - check for clarification
   const handleGiveMeMore = async () => {
+    setLoading(true);
     try {
       const newFact = await getOneMoreFact(topic, allFacts);
       if (newFact && !allFacts.includes(newFact)) {
@@ -50,6 +52,8 @@ function Content() {
       }
     } catch (error) {
       console.error("Error getting new fact:", error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -65,6 +69,7 @@ function Content() {
       <h2>Key facts about: {topic}</h2>
       {/* <p><strong>Definition:</strong> {facts}</p> */}
       <main>
+        {loading && <p>Loading one more fact...</p>}
         {facts.map((fact, index) => (
           <Card key={index} content={fact} />
         ))}
