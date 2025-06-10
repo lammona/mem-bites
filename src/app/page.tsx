@@ -5,6 +5,9 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import NavButton from "./components/navButton/navButton";
 
+//  membites will be displayed on this page directly from the data base- after user will create them. alternatively we can provide 2-3 examples which can be added to the data base or removed by the user- like a mock / show how to work the app kind of test/examples.
+
+
 export default function Home() {
   return (
     <div>
@@ -17,6 +20,7 @@ export default function Home() {
           <Mem_bite></Mem_bite>
           <Mem_bite></Mem_bite>
         </div>
+        
 
         <NavButton text="Quiz me" />
         <Link href="/new_topic">
